@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Don8</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title">don8</string>
+    <string name="welcome">welcome to</string>
+    <string name="restaurant">I\'m a restaurant</string>
+    <string name="restaurant_name">Restaurant Name</string>
 </resources>
