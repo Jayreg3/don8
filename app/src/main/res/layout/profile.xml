@@ -173,10 +173,10 @@
         android:autoLink="all"
         android:clickable="true"
         android:text="https://publichealthlawcenter.org/sites/default/files/resources/Liability%20Protection%20Food%20Donation.pdf"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/liability_laws" />
+        app:layout_constraintTop_toBottomOf="@+id/liability_header_one" />
 
     <TextView
         android:id="@+id/liability_link_three"
@@ -188,10 +188,10 @@
         android:autoLink="all"
         android:clickable="true"
         android:text="https://www.refed.com/tools/food-waste-policy-finder/federal-policy/federal-tax-incentives"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/liability_link_two" />
+        app:layout_constraintTop_toBottomOf="@+id/liability_header_three" />
 
     <TextView
         android:id="@+id/liability_link_two"
@@ -203,10 +203,10 @@
         android:autoLink="all"
         android:clickable="true"
         android:text="http://www.chlpi.org/wp-content/uploads/2013/12/Food-Donation-Fed-Tax-Guide-for-Pub-2.pdf"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/liability_link_one" />
+        app:layout_constraintTop_toBottomOf="@+id/liability_header_two" />
 
     <TextView
         android:id="@+id/contact_number"
@@ -234,5 +234,44 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+
+    <TextView
+        android:id="@+id/liability_header_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="A summary of donation laws"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/liability_link_one" />
+
+    <TextView
+        android:id="@+id/liability_header_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="PDF outlining donation laws."
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/liability_link_two" />
+
+    <TextView
+        android:id="@+id/liability_header_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="Summary of Charitable Food Tax Write-Offs"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/liability_laws" />
 
 </android.support.constraint.ConstraintLayout>

@@ -23,6 +23,9 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView liability_link_one;
     private TextView liability_link_two;
     private TextView liability_link_three;
+    private TextView liability_header_one;
+    private TextView liability_header_two;
+    private TextView liability_header_three;
     private TextView contact_number;
     private Boolean isInvisible = true;
 
@@ -42,6 +45,9 @@ public class ProfileActivity extends AppCompatActivity {
         liability_link_one = findViewById(R.id.liability_link_one);
         liability_link_two = findViewById(R.id.liability_link_two);
         liability_link_three = findViewById(R.id.liability_link_three);
+        liability_header_one = findViewById(R.id.liability_header_one);
+        liability_header_two = findViewById(R.id.liability_header_two);
+        liability_header_three = findViewById(R.id.liability_header_three);
         contact_number = findViewById(R.id.contact_number);
 
         liability_laws.setOnClickListener(new View.OnClickListener() {
@@ -51,12 +57,18 @@ public class ProfileActivity extends AppCompatActivity {
                     liability_link_one.setVisibility(View.VISIBLE);
                     liability_link_two.setVisibility(View.VISIBLE);
                     liability_link_three.setVisibility(View.VISIBLE);
+                    liability_header_one.setVisibility(View.VISIBLE);
+                    liability_header_two.setVisibility(View.VISIBLE);
+                    liability_header_three.setVisibility(View.VISIBLE);
                     isInvisible=false;
                 }
                 else{
                     liability_link_one.setVisibility(View.INVISIBLE);
                     liability_link_two.setVisibility(View.INVISIBLE);
                     liability_link_three.setVisibility(View.INVISIBLE);
+                    liability_header_one.setVisibility(View.INVISIBLE);
+                    liability_header_two.setVisibility(View.INVISIBLE);
+                    liability_header_three.setVisibility(View.INVISIBLE);
                     isInvisible=true;
                 }
             }
