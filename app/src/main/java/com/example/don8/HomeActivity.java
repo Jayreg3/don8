@@ -6,11 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.don8.R;
-
 public class HomeActivity extends AppCompatActivity {
 
     private Button restaurant;
+    private Button donation;
+    private Button login;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -18,11 +18,23 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.home); // says which screen to display on launch
 
         restaurant = findViewById(R.id.restaurant);
+        donation = findViewById(R.id.donation);
+        login = findViewById(R.id.login);
+
+        donation.setEnabled(false);
 
         restaurant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent loginIntent = new Intent(HomeActivity.this, LoginActivity.class);
+                Intent signUpIntent= new Intent(HomeActivity.this, RestaurantSignUpActivity.class);
+                startActivity(signUpIntent);
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loginIntent= new Intent(HomeActivity.this, LoginActivity.class);
                 startActivity(loginIntent);
             }
         });

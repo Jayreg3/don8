@@ -2,55 +2,60 @@ package com.example.don8;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.ProgressBar;
 
 public class LoginActivity extends AppCompatActivity {
-
-    private EditText name;
+    private EditText email;
     private EditText password;
-    private EditText phoneNumber;
-    private EditText address;
-    private EditText city;
-    private EditText state;
-    private EditText zipCode;
-    private CheckBox veggies;
-    private CheckBox fruit;
-    private CheckBox grains;
-    private CheckBox cans;
-    private CheckBox meals;
-    private RadioGroup dropOff;
-    private RadioButton yes;
-    private RadioButton no;
-    private Button create;
-
-  //  private lateinit var firebaseAuth: FirebaseAuth
+    private Button login;
+    private ProgressBar load;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.login); // says which screen to display on launch
 
-        name = findViewById(R.id.name);
+        email = findViewById(R.id.email);
         password = findViewById(R.id.password);
-        phoneNumber = findViewById(R.id.phone);
-        address = findViewById(R.id.address);
-        city = findViewById(R.id.city);
-        state = findViewById(R.id.state);
-        zipCode = findViewById(R.id.zip_code);
-        veggies = findViewById(R.id.veggies);
-        fruit = findViewById(R.id.fruit);
-        grains = findViewById(R.id.grains);
-        cans = findViewById(R.id.canned_goods);
-        meals = findViewById(R.id.meals);
-        dropOff = findViewById(R.id.drop_off_radio);
-        yes = findViewById(R.id.yes_button);
-        no = findViewById(R.id.no_button);
-        create = findViewById(R.id.create_profile);
-       // firebaseAuth = FirebaseAuth.getInstance();
+        login = findViewById(R.id.login);
+        load = findViewById(R.id.loading);
 
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String inputtedUsername = email.getText().toString().trim();
+                String inputtedPassword = password.getText().toString();
+
+                load.setVisibility(View.VISIBLE);
+                setAllEnabled(false);
+            }
+        });
+    }
+    private TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            String inputtedUsername = email.getText().toString().trim();
+            String inputtedPassword = password.getText().toString();
+
+            boolean enableButton = !inputtedUsername.isEmpty() && !inputtedPassword.isEmpty();
+            login.setEnabled(enableButton);
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) { }
+    };
+
+    private void setAllEnabled(boolean enable) {
+        email.setEnabled(enable);
+        password.setEnabled(enable);
+        login.setEnabled(enable);
     }
 }
