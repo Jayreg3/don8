@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Don8</string>
     <string name="title_activity_maps">Map</string>
+    <string name="camera_button_text">Launch Camera</string>
 </resources>
