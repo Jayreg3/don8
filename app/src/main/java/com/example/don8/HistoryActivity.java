@@ -18,12 +18,15 @@ public class HistoryActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_history:
-                        startActivity(new Intent(HistoryActivity.this, HistoryActivity.class));
+                        //startActivity(new Intent(HistoryActivity.this, HistoryActivity.class));
                         break;
                     case R.id.action_data:
                         startActivity(new Intent(HistoryActivity.this, DataActivity.class));                        break;
                     case R.id.action_donate:
                         startActivity(new Intent(HistoryActivity.this, MapsActivity.class));                        break;
+                    case R.id.action_profile:
+                        startActivity(new Intent(HistoryActivity.this, ProfileActivity.class));
+                        break;
                 }
                 return true;
             }
