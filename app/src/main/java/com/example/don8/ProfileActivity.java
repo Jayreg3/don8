@@ -2,13 +2,10 @@ package com.example.don8;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -19,15 +16,21 @@ public class ProfileActivity extends AppCompatActivity {
     private ProgressBar progressBar;
 
     private Button liability_laws;
-    private Button contact_us;
     private TextView liability_link_one;
     private TextView liability_link_two;
     private TextView liability_link_three;
     private TextView liability_header_one;
     private TextView liability_header_two;
     private TextView liability_header_three;
+    private TextView progress_label;
+    private Boolean isRestaurant;
+
+    private Button contact_us;
+
     private TextView contact_number;
-    private Boolean isInvisible = true;
+    private TextView contact_email;
+    private TextView email_header;
+    private TextView phone_header;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,31 +51,64 @@ public class ProfileActivity extends AppCompatActivity {
         liability_header_one = findViewById(R.id.liability_header_one);
         liability_header_two = findViewById(R.id.liability_header_two);
         liability_header_three = findViewById(R.id.liability_header_three);
-        contact_number = findViewById(R.id.contact_number);
+
+        contact_number = findViewById(R.id.contact_phone);
+        contact_email = findViewById(R.id.contact_email);
+        email_header = findViewById(R.id.email_header);
+        phone_header = findViewById(R.id.phone_header);
+        progress_label = findViewById(R.id.progress_label);
+
+        isRestaurant = true;
+
+        if(!isRestaurant) {
+            //donation_value.setVisibility(View.INVISIBLE);
+            progress_label.setText("Capacity Filled");
+        }
+
+        contact_us.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(contact_number.getVisibility() == View.GONE){
+                    contact_number.setVisibility(View.VISIBLE);
+                    contact_email.setVisibility(View.VISIBLE);
+                    email_header.setVisibility(View.VISIBLE);
+                    phone_header.setVisibility(View.VISIBLE);
+                }
+                else{
+                    contact_number.setVisibility(View.GONE);
+                    contact_email.setVisibility(View.GONE);
+                    email_header.setVisibility(View.GONE);
+                    phone_header.setVisibility(View.GONE);
+                }
+
+            }
+        });
 
         liability_laws.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(liability_link_one.getVisibility() == View.INVISIBLE){
+                if(liability_link_one.getVisibility() == View.GONE){
                     liability_link_one.setVisibility(View.VISIBLE);
                     liability_link_two.setVisibility(View.VISIBLE);
                     liability_link_three.setVisibility(View.VISIBLE);
                     liability_header_one.setVisibility(View.VISIBLE);
                     liability_header_two.setVisibility(View.VISIBLE);
                     liability_header_three.setVisibility(View.VISIBLE);
-                    isInvisible=false;
                 }
                 else{
-                    liability_link_one.setVisibility(View.INVISIBLE);
-                    liability_link_two.setVisibility(View.INVISIBLE);
-                    liability_link_three.setVisibility(View.INVISIBLE);
-                    liability_header_one.setVisibility(View.INVISIBLE);
-                    liability_header_two.setVisibility(View.INVISIBLE);
-                    liability_header_three.setVisibility(View.INVISIBLE);
-                    isInvisible=true;
+                    liability_link_one.setVisibility(View.GONE);
+                    liability_link_two.setVisibility(View.GONE);
+                    liability_link_three.setVisibility(View.GONE);
+                    liability_header_one.setVisibility(View.GONE);
+                    liability_header_two.setVisibility(View.GONE);
+                    liability_header_three.setVisibility(View.GONE);
                 }
             }
         });
+
+
+
+
 
     }
 
