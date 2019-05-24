@@ -32,26 +32,27 @@
         <activity
             android:name=".HomeActivity"
             android:label="@string/app_name">
-        </activity>
-
-        <activity
-            android:name=".HistoryActivity"
-            android:label="History">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
-
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
         </activity>
 
         <activity
-            android:name=".DataActivity"
-            android:label="Analytics">
+            android:name=".AnalyticsActivity"
+            android:label="Don8 - Data">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".ConfirmationActivity"></activity>
