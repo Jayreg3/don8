@@ -1,5 +1,8 @@
 package com.example.don8;
 
+import com.example.don8.UserObject;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -21,9 +24,11 @@ import com.google.firebase.auth.FirebaseAuthEmailException;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RestaurantSignUpActivity extends AppCompatActivity {
+    public static String DATABASE_URL = "https://don8-8acd8.firebaseio.com/";
 
     private EditText name;
     private EditText email;
@@ -52,9 +57,8 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
-       firebaseAuth = FirebaseAuth.getInstance();
-       firebaseDatabase = FirebaseDatabase.getInstance();
-
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
 
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
@@ -71,14 +75,26 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
         meals = findViewById(R.id.meals);
         dropOff = findViewById(R.id.drop_off_radio);
         yes = findViewById(R.id.yes_button);
-        no = findViewById(R.id.no_button);
         create = findViewById(R.id.create_profile);
 
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String inputtedEmail = email.getText().toString().trim();
-                String inputtedPassword = password.getText().toString();
+                final String inputtedName = name.getText().toString().trim();
+                final String inputtedEmail = email.getText().toString().trim();
+                final String inputtedPassword = password.getText().toString();
+                final String inputtedNumber = phoneNumber.getText().toString().trim();
+                final String inputtedAddress = address.getText().toString().trim();
+                final String inputtedCity = city.getText().toString().trim();
+                final String inputtedState = state.getText().toString().trim();
+                final String inputtedZip = zipCode.getText().toString().trim();
+                final boolean hasVeggies = veggies.isChecked();
+                final boolean hasFruit = fruit.isChecked();
+                final boolean hasGrains = grains.isChecked();
+                final boolean hasCans = cans.isChecked();
+                final boolean hasMeals = meals.isChecked();
+                final boolean canDropOff = (dropOff.getCheckedRadioButtonId() == yes.getId());
+
 
                 firebaseAuth.createUserWithEmailAndPassword(inputtedEmail, inputtedPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -86,12 +102,21 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             Toast.makeText(RestaurantSignUpActivity.this, "User created successfully", Toast.LENGTH_SHORT).show();
+                            UserObject currUser = new UserObject(inputtedName, inputtedEmail, inputtedPassword,
+                                    inputtedNumber, inputtedAddress, inputtedCity, inputtedState, inputtedZip, hasVeggies,
+                                    hasFruit, hasGrains, hasCans, hasMeals, canDropOff);
+                            DatabaseReference databaseReference = firebaseDatabase.getReferenceFromUrl(DATABASE_URL);
+                            databaseReference.push().setValue(currUser);
+                            
                         } else {
                             Toast.makeText(RestaurantSignUpActivity.this, "Couldn't create user", Toast.LENGTH_SHORT);
                         }
                     }
                 });
+
             }
         });
     }
+
+
 }
