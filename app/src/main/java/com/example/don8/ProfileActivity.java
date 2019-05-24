@@ -22,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
                         startActivity(new Intent(ProfileActivity.this, HistoryActivity.class));
                         break;
                     case R.id.action_data:
-                        startActivity(new Intent(ProfileActivity.this, DataActivity.class));                        break;
+                        startActivity(new Intent(ProfileActivity.this, AnalyticsActivity.class));                        break;
                     case R.id.action_donate:
                         startActivity(new Intent(ProfileActivity.this, MapsActivity.class));                        break;
                     case R.id.action_profile:
