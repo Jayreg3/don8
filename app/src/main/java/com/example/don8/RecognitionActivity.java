@@ -2,9 +2,11 @@ package com.example.don8;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Parcel;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -28,6 +30,7 @@ import com.wonderkiln.camerakit.CameraKitImage;
 import com.wonderkiln.camerakit.CameraKitVideo;
 import com.wonderkiln.camerakit.CameraView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 import dmax.dialog.SpotsDialog;
@@ -36,6 +39,7 @@ import dmax.dialog.SpotsDialog;
 
 public class RecognitionActivity extends AppCompatActivity {
     private static final int MY_CAMERA_REQUEST_CODE = 100;
+    private Bitmap imageCaptured;
     CameraView cameraView;
     Button btnDetect;
     AlertDialog waitingDialog;
@@ -95,9 +99,14 @@ public class RecognitionActivity extends AppCompatActivity {
             }
             @Override
             public void onImage(CameraKitImage cameraKitImage) {
+                System.out.println("YUII");
                 waitingDialog.show();
+                System.out.println("BEFE");
                 Bitmap bitmap = cameraKitImage.getBitmap();
+                System.out.println("Test 1" + bitmap);
                 bitmap = Bitmap.createScaledBitmap(bitmap, cameraView.getWidth(), cameraView.getHeight(), false);
+                System.out.println("Test 2" + bitmap);
+                imageCaptured = bitmap;
                 System.out.println("stopped here");
                 cameraView.stop();
                 runDetector(bitmap);
@@ -106,11 +115,28 @@ public class RecognitionActivity extends AppCompatActivity {
             public void onVideo(CameraKitVideo cameraKitVideo) {
             }
         });
+
         btnDetect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cameraView.start();
                 cameraView.captureImage();
+                /*
+                ByteArrayOutputStream bStream = new ByteArrayOutputStream();
+                imageCaptured.compress(Bitmap.CompressFormat.PNG, 100, bStream);
+                System.out.println("Bye");
+                byte[] byteArray = bStream.toByteArray();
+
+                Intent anotherIntent = new Intent(RecognitionActivity.this, ConfirmationActivity.class);
+                anotherIntent.putExtra("image", byteArray);
+                startActivity(anotherIntent);
+                finish(); */
+
+                Intent anotherIntent = new Intent(RecognitionActivity.this, ConfirmationActivity.class);
+                anotherIntent.putExtra("image", imageCaptured);
+                startActivity(anotherIntent);
+
+
             }
         });
     }
