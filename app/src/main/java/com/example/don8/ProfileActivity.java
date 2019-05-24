@@ -65,7 +65,7 @@ public class ProfileActivity extends AppCompatActivity {
                     case R.id.action_data:
                         startActivity(new Intent(ProfileActivity.this, DataActivity.class));                        break;
                     case R.id.action_donate:
-                        startActivity(new Intent(ProfileActivity.this, MapsActivity.class));                        break;
+                        startActivity(new Intent(ProfileActivity.this, RecognitionActivity.class));                        break;
                     case R.id.action_profile:
                         //startActivity(new Intent(ProfileActivity.this, ProfileActivity.class));
                         break;
@@ -171,7 +171,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Second argument is the class to switch to
-                Intent intent = new Intent(getBaseContext(), MapsActivity.class);
+                Intent intent = new Intent(getBaseContext(), RecognitionActivity.class);
 
                 //To pass info to the new screen. Name of the variable, value of variable
                 //intent.putExtra("mame", name);

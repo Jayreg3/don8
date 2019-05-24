@@ -57,6 +57,7 @@
         <activity android:name=".ProfileActivity"></activity>
         <activity android:name=".HistoryActivity"></activity>
         <activity android:name=".RecognitionActivity"></activity>
+        <activity android:name=".CharityActivity"></activity>
 
 
     </application>

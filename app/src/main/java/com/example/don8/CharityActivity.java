@@ -1,7 +1,6 @@
 package com.example.don8;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.annotation.NonNull;
@@ -58,8 +57,8 @@ public class CharityActivity extends AppCompatActivity {
         ok.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                success.setVisibility(View.INVISIBLE);
-                ok.setVisibility(View.INVISIBLE);
+                success.setVisibility(View.GONE);
+                ok.setVisibility(View.GONE);
 
                 Intent profileIntent = new Intent(CharityActivity.this, ProfileActivity.class);
                 startActivity(profileIntent);
