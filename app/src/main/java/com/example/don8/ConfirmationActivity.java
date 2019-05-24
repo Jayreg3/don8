@@ -21,10 +21,6 @@ public class ConfirmationActivity extends AppCompatActivity {
 
         Bitmap image = getIntent().getExtras().getParcelable("image");
 
-        ImageView tv1;
-        tv1= (ImageView) findViewById(R.id.image);
-        InputStream si1 = asset.open("image/" + cat_arr1[i] + ".png");
-        Bitmap bitmap1 = BitmapFactory.decodeStream(si1);
-        tv1.setImageBitmap(bitmap1);
+
     }
 }
