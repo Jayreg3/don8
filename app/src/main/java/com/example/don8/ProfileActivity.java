@@ -1,5 +1,6 @@
 package com.example.don8;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,6 +27,7 @@ public class ProfileActivity extends AppCompatActivity {
     private Boolean isRestaurant;
 
     private Button contact_us;
+    private Button donate;
 
     private TextView contact_number;
     private TextView contact_email;
@@ -58,6 +60,7 @@ public class ProfileActivity extends AppCompatActivity {
         phone_header = findViewById(R.id.phone_header);
         progress_label = findViewById(R.id.progress_label);
 
+        donate = findViewById(R.id.donate);
         isRestaurant = true;
 
         if(!isRestaurant) {
@@ -105,6 +108,22 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         });
+
+        donate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Second argument is the class to switch to
+                Intent intent = new Intent(getBaseContext(), MapsActivity.class);
+
+                //To pass info to the new screen. Name of the variable, value of variable
+                //intent.putExtra("mame", name);
+
+                startActivity(intent);
+
+            }
+        });
+
+
 
 
 
