@@ -32,7 +32,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".ProfileActivity"
+            android:name=".AnalyticsActivity"
             android:label="@string/app_name">
 
         </activity>
@@ -44,8 +44,8 @@
         </activity>
 
         <activity
-            android:name=".AnalyticsActivity"
-            android:label="Don8 - Data">
+            android:name=".ProfileActivity"
+            android:label="Don8">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -56,6 +56,10 @@
         <activity android:name=".RestaurantSignUpActivity"/>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".HistorySummaryActivity"></activity>
+        <activity android:name=".HistoryActivity"></activity>
+
+        <activity android:name=".DataActivity"></activity>
+        <activity android:name=".HomeActivity"></activity>
     </application>
 
 </manifest>

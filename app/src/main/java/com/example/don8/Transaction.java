@@ -6,11 +6,13 @@ public class Transaction implements Serializable {
     private final String name;
     private final String date;
     private final String status;
+    //private final String image;
 
-    public Transaction(String name, String date, String status) {
+    public Transaction(String name, String date, String status){//, String image) {
         this.name = name;
         this.date = date;
         this.status = status;
+        //this.image = image;
 
     }
 

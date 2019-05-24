@@ -144,20 +144,23 @@ public class ProfileActivity extends AppCompatActivity {
                 //intent.putExtra("mame", name);
 
                 ArrayList<Transaction> transactions = new ArrayList<Transaction>();
-                Transaction trans = new Transaction("fcking", "program", "stupid");
-                System.out.println(trans);
-                transactions.add(trans);
-                transactions.add(trans);
-                transactions.add(trans);
-                transactions.add(trans);
-                transactions.add(trans);
-                transactions.add(trans);
-                transactions.add(trans);
-                transactions.add(trans);
-                transactions.add(trans);
-                transactions.add(trans);
-                transactions.add(trans);
-                transactions.add(trans);
+                Transaction one = new Transaction("Food To You Mobile Food Pantry", "May 8, 2017", "Donation Successful.");//, "@drawable/nachoes");
+//                Transaction two = new Transaction();
+//                Transaction three = new Transaction();
+//                Transaction four = new Transaction();
+//                Transaction five = new Transaction();
+//                Transaction six = new Transaction();
+//                Transaction seven = new Transaction();
+//                Transaction eight = new Transaction();
+
+                transactions.add(one);
+//                transactions.add(two);
+//                transactions.add(three);
+//                transactions.add(four);
+//                transactions.add(five);
+//                transactions.add(six);
+//                transactions.add(seven);
+//                transactions.add(eight);
                 intent.putExtra("TRANSACTIONS", transactions);
 
                 System.out.println(transactions);
