@@ -31,11 +31,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".HomeActivity"
-            android:label="@string/app_name">
-
-        </activity>
 
 
         <activity
@@ -44,21 +39,23 @@
         </activity>
 
         <activity
-            android:name=".AnalyticsActivity"
-            android:label="Don8 - Data">
+            android:name=".HomeActivity"
+            android:label="Don8">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
-        <activity android:name=".ConfirmationActivity"><intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+        <activity android:name=".ConfirmationActivity"></activity>
         <activity android:name=".RestaurantSignUpActivity"/>
+        <activity android:name=".AnalyticsActivity" android:label="Analytics"></activity>
         <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".ProfileActivity"></activity>
-        <activity android:name=".HistoryActivity"></activity>
-        <activity android:name=".RecognitionActivity"></activity>
-
+        <activity android:name=".HistoryActivity" android:label="History"></activity>
+        <activity android:name=".DataActivity"></activity>
+        <activity android:name=".ProfileActivity" android:label="Profile"></activity>
+        <activity android:name=".RecognitionActivity" ></activity>
+        <activity android:name=".CharityActivity"></activity>
 
     </application>
 

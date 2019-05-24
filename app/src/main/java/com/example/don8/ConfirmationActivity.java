@@ -59,6 +59,8 @@ public class ConfirmationActivity extends AppCompatActivity {
     public Bitmap imageCaptured;
     CameraView cameraView;
     Button btnDetect;
+    Button btnDonate;
+    Button btnRetake;
     AlertDialog waitingDialog;
     private DatabaseReference mDatabase;
 
@@ -113,6 +115,8 @@ public class ConfirmationActivity extends AppCompatActivity {
 
         cameraView = (CameraView)findViewById(R.id.camera_view);
         btnDetect = (Button) findViewById(R.id.btn_detect);
+        btnDonate = (Button) findViewById(R.id.send_donation_button);
+        btnRetake = (Button) findViewById(R.id.button);
         waitingDialog = new SpotsDialog.Builder()
                 .setContext(this)
                 .setMessage("Please wait...")
@@ -132,10 +136,13 @@ public class ConfirmationActivity extends AppCompatActivity {
                 Bitmap bitmap = cameraKitImage.getBitmap();
                 //System.out.println("Test 1" + bitmap);
                 bitmap = Bitmap.createScaledBitmap(bitmap, cameraView.getWidth(), cameraView.getHeight(), false);
+                bitmap = bitmap.createScaledBitmap(bitmap, (int)(bitmap.getWidth()*5), (int)(bitmap.getHeight()*2), true);
                 imageCaptured=bitmap;
                 ImageView mImg;
                 mImg = (ImageView) findViewById(R.id.imageView2);
                 mImg.setImageBitmap(imageCaptured);
+
+
 
 
                 System.out.println("stopped here");
@@ -155,16 +162,33 @@ public class ConfirmationActivity extends AppCompatActivity {
                 cameraView.captureImage();
                 CameraView m = (CameraView) findViewById(R.id.camera_view);
                 m.setVisibility(View.GONE);
-                Button bb = (Button) findViewById(R.id.btn_detect);
-                bb.setVisibility(View.GONE);
+                btnDetect.setVisibility(View.GONE);
+                btnRetake.setVisibility(View.VISIBLE);
                 Button bb1 = (Button) findViewById(R.id.button);
-                bb.setVisibility(View.VISIBLE);
-                Button bb2 = (Button) findViewById(R.id.button2);
-                bb.setVisibility(View.VISIBLE);
+                bb1.setVisibility(View.VISIBLE);
+                Button bb2 = (Button) findViewById(R.id.send_donation_button);
+                bb2.setVisibility(View.VISIBLE);
                 ImageView mView = (ImageView) findViewById(R.id.imageView2);
                // mView.setVisibility(View.VISIBLE);
 
 
+
+
+            }
+        });
+
+        btnDonate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ConfirmationActivity.this, "Donation Confirmed " , Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ConfirmationActivity.this, ProfileActivity.class));
+            }
+        });
+
+        btnRetake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ConfirmationActivity.this, ConfirmationActivity.class));
             }
         });
 
@@ -216,7 +240,7 @@ public class ConfirmationActivity extends AppCompatActivity {
     }
     private void processDataResults(List<FirebaseVisionImageLabel> labels){
         for(FirebaseVisionImageLabel label: labels){
-            Toast.makeText(this, "Image result: " + label.getText(), Toast.LENGTH_SHORT).show();
+
         }
         if(waitingDialog.isShowing()) {
             waitingDialog.dismiss();

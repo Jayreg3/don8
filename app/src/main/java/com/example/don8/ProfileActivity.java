@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -63,9 +65,9 @@ public class ProfileActivity extends AppCompatActivity {
                         startActivity(new Intent(ProfileActivity.this, HistoryActivity.class));
                         break;
                     case R.id.action_data:
-                        startActivity(new Intent(ProfileActivity.this, DataActivity.class));                        break;
+                        startActivity(new Intent(ProfileActivity.this, AnalyticsActivity.class));                        break;
                     case R.id.action_donate:
-                        startActivity(new Intent(ProfileActivity.this, MapsActivity.class));                        break;
+                        startActivity(new Intent(ProfileActivity.this, ConfirmationActivity.class));                        break;
                     case R.id.action_profile:
                         //startActivity(new Intent(ProfileActivity.this, ProfileActivity.class));
                         break;
@@ -94,6 +96,7 @@ public class ProfileActivity extends AppCompatActivity {
         email_header = findViewById(R.id.email_header);
         phone_header = findViewById(R.id.phone_header);
         progress_label = findViewById(R.id.progress_label);
+        //progressBar.setProgress(20);
 
         donate = findViewById(R.id.donate);
         isRestaurant = true;
@@ -101,24 +104,24 @@ public class ProfileActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        FirebaseUser currUser = firebaseAuth.getCurrentUser();
-        DatabaseReference userReference = firebaseDatabase.getReferenceFromUrl(DATABASE_URL + "/" + currUser.getUid());
-        userReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                UserObject object = dataSnapshot.getValue(UserObject.class);
-                System.out.println(object);
-//                profile_name.setText(object.getName());
-//                company_id.setText(object.getEmail());
-//                contact_email.setText(object.getEmail());
-//                contact_number.setText(object.getPhoneNumber());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        FirebaseUser currUser = firebaseAuth.getCurrentUser();
+//        DatabaseReference userReference = firebaseDatabase.getReferenceFromUrl(DATABASE_URL + "/" + currUser.getUid());
+//        userReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                UserObject object = dataSnapshot.getValue(UserObject.class);
+//                System.out.println(object);
+////                profile_name.setText(object.getName());
+////                company_id.setText(object.getEmail());
+////                contact_email.setText(object.getEmail());
+////                contact_number.setText(object.getPhoneNumber());
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
 
         if(!isRestaurant) {
@@ -167,11 +170,12 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
         donate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Second argument is the class to switch to
-                Intent intent = new Intent(getBaseContext(), MapsActivity.class);
+                Intent intent = new Intent(getBaseContext(), ConfirmationActivity.class);
 
                 //To pass info to the new screen. Name of the variable, value of variable
                 //intent.putExtra("mame", name);
@@ -180,12 +184,9 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
+    }
 
-
-
-
-
-
+    public void visible(){
 
     }
 

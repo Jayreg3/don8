@@ -23,7 +23,7 @@ public class DataActivity extends AppCompatActivity {
                     case R.id.action_data:
                         //startActivity(new Intent(DataActivity.this, DataActivity.class));                        break;
                     case R.id.action_donate:
-                        startActivity(new Intent(DataActivity.this, MapsActivity.class));                        break;
+                        startActivity(new Intent(DataActivity.this, ConfirmationActivity.class));                        break;
                     case R.id.action_profile:
                         startActivity(new Intent(DataActivity.this, ProfileActivity.class));
                         break;
