@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                 load.setVisibility(View.VISIBLE);
 //                setAllEnabled(false);
 
-                Intent profileIntent = new Intent(LoginActivity.this, CharityActivity.class);
+                Intent profileIntent = new Intent(LoginActivity.this, ProfileActivity.class);
                 startActivity(profileIntent);
 
 //                firebaseAuth.signInWithEmailAndPassword(inputtedEmail, inputtedPassword).addOnCompleteListener(new OnCompleteListener() {

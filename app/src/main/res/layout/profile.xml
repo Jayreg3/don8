@@ -177,7 +177,7 @@
         android:layout_marginEnd="8dp"
         android:autoLink="all"
         android:clickable="true"
-        android:text="https://publichealthlawcenter.org/sites/default/files/resources/Liability%20Protection%20Food%20Donation.pdf"
+        android:text="A number of federal laws encourage food donation in the United States by providing liability protection to donors or tax incentives."
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -196,7 +196,8 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/liability_header_three" />
+        app:layout_constraintTop_toBottomOf="@+id/liability_header_three"
+        tools:text="The U.S. Federal Food Donation Act of 2008 specifies procurement contract language encouraging Federal agencies and contractors of Federal agencies to donate excess wholesome food to eligible nonprofit organizations to feed food-insecure people in the United States. " />
 
     <TextView
         android:id="@+id/liability_link_two"
@@ -207,7 +208,7 @@
         android:layout_marginEnd="8dp"
         android:autoLink="all"
         android:clickable="true"
-        android:text="http://www.chlpi.org/wp-content/uploads/2013/12/Food-Donation-Fed-Tax-Guide-for-Pub-2.pdf"
+        android:text="Internal Revenue Code 170(e)(3) provides enhanced tax deductions to businesses to encourage donations of fit and wholesome food to qualified nonprofit organizations serving the poor and needy.  Qualified business taxpayers can deduct the cost to produce the food and half the difference between the cost and full fair market value of the donated food."
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
