@@ -23,6 +23,14 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 public class RestaurantSignUpActivity extends AppCompatActivity {
 
     private EditText name;
@@ -80,18 +88,65 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
                 String inputtedEmail = email.getText().toString().trim();
                 String inputtedPassword = password.getText().toString();
 
-                firebaseAuth.createUserWithEmailAndPassword(inputtedEmail, inputtedPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
-                            Toast.makeText(RestaurantSignUpActivity.this, "User created successfully", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(RestaurantSignUpActivity.this, "Couldn't create user", Toast.LENGTH_SHORT);
+//                firebaseAuth.createUserWithEmailAndPassword(inputtedEmail, inputtedPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()) {
+//                            FirebaseUser user = firebaseAuth.getCurrentUser();
+//                            Toast.makeText(RestaurantSignUpActivity.this, "User created successfully", Toast.LENGTH_SHORT).show();
+//                        } else {
+//                            Toast.makeText(RestaurantSignUpActivity.this, "Couldn't create user", Toast.LENGTH_SHORT);
+//                        }
+//                    }
+//                });
+
+                //make okhttpclient object
+                OkHttpClient client = new OkHttpClient();
+
+                //call function if login button is clicked
+                switch (view.getId()) {
+                    case R.id.create_profile:
+                        try {
+                            doGetRequest("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=feeding%20america&inputtype=textquery&fields=id,name,icon,formatted_address,geometry,types&key=AIzaSyCGVC5nczigiEZMugTnssESOHXT6P6GQMQ");
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
-                    }
-                });
+                        break;
+                }
             }
         });
+    }
+
+
+    //setup function
+    void doGetRequest(String url) throws IOException {
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        client.newCall(request)
+                .enqueue(new Callback() {
+                    @Override
+                    public void onFailure(final Call call, IOException e) {
+                        // Error
+                        System.out.println("Didn't work");
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // For the example, you can show an error dialog or a toast
+                                // on the main UI thread
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onResponse(Call call, final Response response) throws IOException {
+                        String res = response.body().string();
+
+                        // Do something with the response
+                        System.out.println(res);
+                    }
+                });
     }
 }
