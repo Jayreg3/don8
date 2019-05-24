@@ -127,6 +127,15 @@ public class ProfileActivity extends AppCompatActivity {
                 transactions.add(trans);
                 transactions.add(trans);
                 transactions.add(trans);
+                transactions.add(trans);
+                transactions.add(trans);
+                transactions.add(trans);
+                transactions.add(trans);
+                transactions.add(trans);
+                transactions.add(trans);
+                transactions.add(trans);
+                transactions.add(trans);
+                transactions.add(trans);
                 intent.putExtra("TRANSACTIONS", transactions);
 
                 System.out.println(transactions);
