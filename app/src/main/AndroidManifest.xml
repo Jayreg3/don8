@@ -38,9 +38,21 @@
             </intent-filter>
         </activity>
 
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".AnalyticsActivity"
-            android:label="Don8 - Analytics">
+            android:label="Don8 - Data">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".ConfirmationActivity"></activity>
