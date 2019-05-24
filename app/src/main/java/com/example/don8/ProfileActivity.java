@@ -83,6 +83,7 @@ public class ProfileActivity extends AppCompatActivity {
         email_header = findViewById(R.id.email_header);
         phone_header = findViewById(R.id.phone_header);
         progress_label = findViewById(R.id.progress_label);
+        //progressBar.setProgress(20);
 
         donate = findViewById(R.id.donate);
         isRestaurant = true;
@@ -142,28 +143,6 @@ public class ProfileActivity extends AppCompatActivity {
 
                 //To pass info to the new screen. Name of the variable, value of variable
                 //intent.putExtra("mame", name);
-
-                ArrayList<Transaction> transactions = new ArrayList<Transaction>();
-                Transaction one = new Transaction("Donation to Food To You Mobile Food Pantry", "May 25, 2019", "Donation Successful.", R.drawable.rice);
-                Transaction two = new Transaction("Donation to Project Soup", "May 23, 2019", "Donation Successful.", R.drawable.casserole);
-                Transaction three = new Transaction("Donation to FoodLink", "May 20, 2019", "Donation Successful.", R.drawable.pizza2);
-                Transaction four = new Transaction("Donation to Food Bank", "May 18, 2019", "Donation Successful.", R.drawable.lobster);
-                Transaction five = new Transaction("Donation to Project Bread", "May 15, 2019", "Donation Successful.", R.drawable.chickenmac);
-                Transaction six = new Transaction("Donation to Red Cross", "May 12, 2019", "Donation Successful.", R.drawable.dinner);
-                Transaction seven = new Transaction("Donation to St. Christopher's Food Drive", "May 9, 2019", "Donation Successful.", R.drawable.cake2);
-                Transaction eight = new Transaction("Donation to The Shelter", "May 3, 2019", "Donation Successful.", R.drawable.pizza);
-                Transaction nine = new Transaction("Donation to FoodLink", "May 1, 2019", "Donation Successful.", R.drawable.cake);
-
-                transactions.add(one);
-                transactions.add(two);
-                transactions.add(three);
-                transactions.add(four);
-                transactions.add(five);
-                transactions.add(six);
-                transactions.add(seven);
-                transactions.add(eight);
-                transactions.add(nine);
-                intent.putExtra("TRANSACTIONS", transactions);
 
                 startActivity(intent);
 

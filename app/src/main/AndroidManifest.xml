@@ -56,7 +56,6 @@
         <activity android:name=".RestaurantSignUpActivity"/>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".HistoryActivity"></activity>
-        <activity android:name=".HistoryActivity"></activity>
 
         <activity android:name=".DataActivity"></activity>
         <activity android:name=".HomeActivity"></activity>

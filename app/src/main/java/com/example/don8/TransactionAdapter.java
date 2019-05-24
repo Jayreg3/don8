@@ -17,6 +17,9 @@ import java.util.List;
 
 public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.ViewHolder> {
 
+
+
+
     /**
      * The list of credit card transactions which will be adapted to the UI.
      */
