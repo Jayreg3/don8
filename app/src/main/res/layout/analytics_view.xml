@@ -9,4 +9,9 @@
         android:layout_height="wrap_content"
         android:text="Analytics Page"
         android:textSize="40sp" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/analytics_bar_chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
