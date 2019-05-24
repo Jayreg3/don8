@@ -1,2 +1,4 @@
 # don8
-Reducing food waste by creating an efficient system for restaurants to donate leftover foods to charities.
+This project really ruined my vibe dude. 
+I was straight up not having a good time jk jk 
+
