@@ -59,6 +59,9 @@
         <activity android:name=".RestaurantSignUpActivity"/>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".HistoryActivity"></activity>
+
+
     </application>
 
 </manifest>

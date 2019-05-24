@@ -45,56 +45,28 @@ public class LoginActivity extends AppCompatActivity {
                 load.setVisibility(View.VISIBLE);
                 setAllEnabled(false);
 
-                firebaseAuth.signInWithEmailAndPassword(inputtedEmail, inputtedPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
-                            Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
+                Intent profileIntent = new Intent(LoginActivity.this, ProfileActivity.class);
+                startActivity(profileIntent);
 
-                            Intent profileIntent = new Intent(LoginActivity.this, ProfileActivity.class);
-                            startActivity(profileIntent);
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Login error", Toast.LENGTH_SHORT);
-                        }
-                    }
-                });
+//                firebaseAuth.signInWithEmailAndPassword(inputtedEmail, inputtedPassword).addOnCompleteListener(new OnCompleteListener() {
+//                    @Override
+//
+//                    public void onComplete(@NonNull Task task) {
+//                        System.out.println("Before if**********************");
+//                        if (task.isSuccessful()) {
+//                            System.out.println("Inside if**********************");
+//                            Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
+//
+//                            Intent profileIntent = new Intent(LoginActivity.this, ProfileActivity.class);
+//                            startActivity(profileIntent);
+//                        } else {
+//                            Toast.makeText(LoginActivity.this, "Login error", Toast.LENGTH_SHORT);
+//                        }
+//                    }
+//                });
             }
         });
     }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        if (firebaseAuth.getCurrentUser() != null) {
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            Toast.makeText(LoginActivity.this, "Logging in...", Toast.LENGTH_SHORT);
-
-            Intent profileIntent = new Intent(LoginActivity.this, ProfileActivity.class);
-            startActivity(profileIntent);
-        }
-    }
-
-
-    private TextWatcher textWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
-
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            String inputtedUsername = email.getText().toString().trim();
-            String inputtedPassword = password.getText().toString();
-
-            boolean enableButton = !inputtedUsername.isEmpty() && !inputtedPassword.isEmpty();
-            login.setEnabled(enableButton);
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) { }
-    };
-
-
 
     private void setAllEnabled(boolean enable) {
         email.setEnabled(enable);
