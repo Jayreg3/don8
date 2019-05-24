@@ -1,9 +1,13 @@
 package com.example.don8;
 
 //import android.content.Intent;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 //import android.view.View;
 
 import com.github.mikephil.charting.components.Description;
@@ -31,6 +35,27 @@ public class AnalyticsActivity extends AppCompatActivity {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         drawChart();
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_history:
+                        //startActivity(new Intent(HistoryActivity.this, HistoryActivity.class));
+                        break;
+                    case R.id.action_data:
+                        startActivity(new Intent(AnalyticsActivity.this, DataActivity.class));
+                        break;
+                    case R.id.action_donate:
+                        startActivity(new Intent(AnalyticsActivity.this, MapsActivity.class));
+                        break;
+                    case R.id.action_profile:
+                        startActivity(new Intent(AnalyticsActivity.this, ProfileActivity.class));
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     // TODO: import bar chart and draw
