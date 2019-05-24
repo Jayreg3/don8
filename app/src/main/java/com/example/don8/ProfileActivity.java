@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private TextView profile_name;
@@ -109,25 +111,32 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
         donate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Second argument is the class to switch to
-                Intent intent = new Intent(getBaseContext(), MapsActivity.class);
+                Intent intent = new Intent(getBaseContext(), HistorySummaryActivity.class);
 
                 //To pass info to the new screen. Name of the variable, value of variable
                 //intent.putExtra("mame", name);
 
+                ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+                Transaction trans = new Transaction("fcking", "program", "stupid");
+                System.out.println(trans);
+                transactions.add(trans);
+                transactions.add(trans);
+                transactions.add(trans);
+                intent.putExtra("TRANSACTIONS", transactions);
+
+                System.out.println(transactions);
                 startActivity(intent);
 
             }
         });
+    }
 
-
-
-
-
-
+    public void visible(){
 
     }
 
