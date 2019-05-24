@@ -180,8 +180,7 @@ public class ConfirmationActivity extends AppCompatActivity {
         btnDonate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ConfirmationActivity.this, "Donation Confirmed " , Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(ConfirmationActivity.this, ProfileActivity.class));
+                startActivity(new Intent(ConfirmationActivity.this, CharityActivity.class));
             }
         });
 
