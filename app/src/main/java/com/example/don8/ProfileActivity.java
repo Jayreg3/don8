@@ -63,9 +63,9 @@ public class ProfileActivity extends AppCompatActivity {
                         startActivity(new Intent(ProfileActivity.this, HistoryActivity.class));
                         break;
                     case R.id.action_data:
-                        startActivity(new Intent(ProfileActivity.this, DataActivity.class));                        break;
+                        startActivity(new Intent(ProfileActivity.this, AnalyticsActivity.class));                        break;
                     case R.id.action_donate:
-                        startActivity(new Intent(ProfileActivity.this, MapsActivity.class));                        break;
+                        startActivity(new Intent(ProfileActivity.this, RecognitionActivity.class));                        break;
                     case R.id.action_profile:
                         //startActivity(new Intent(ProfileActivity.this, ProfileActivity.class));
                         break;
@@ -101,24 +101,24 @@ public class ProfileActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        FirebaseUser currUser = firebaseAuth.getCurrentUser();
-        DatabaseReference userReference = firebaseDatabase.getReferenceFromUrl(DATABASE_URL + "/" + currUser.getUid());
-        userReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                UserObject object = dataSnapshot.getValue(UserObject.class);
-                System.out.println(object);
-//                profile_name.setText(object.getName());
-//                company_id.setText(object.getEmail());
-//                contact_email.setText(object.getEmail());
-//                contact_number.setText(object.getPhoneNumber());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        FirebaseUser currUser = firebaseAuth.getCurrentUser();
+//        DatabaseReference userReference = firebaseDatabase.getReferenceFromUrl(DATABASE_URL + "/" + currUser.getUid());
+//        userReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                UserObject object = dataSnapshot.getValue(UserObject.class);
+//                System.out.println(object);
+////                profile_name.setText(object.getName());
+////                company_id.setText(object.getEmail());
+////                contact_email.setText(object.getEmail());
+////                contact_number.setText(object.getPhoneNumber());
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
 
         if(!isRestaurant) {
@@ -171,7 +171,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Second argument is the class to switch to
-                Intent intent = new Intent(getBaseContext(), MapsActivity.class);
+                Intent intent = new Intent(getBaseContext(), RecognitionActivity.class);
 
                 //To pass info to the new screen. Name of the variable, value of variable
                 //intent.putExtra("mame", name);

@@ -29,21 +29,23 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login); // says which screen to display on launch
-        firebaseAuth = FirebaseAuth.getInstance();
+//        firebaseAuth = FirebaseAuth.getInstance();
+//
+//        email = findViewById(R.id.email);
+//        password = findViewById(R.id.password);
+          load = findViewById(R.id.loading);
 
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
         login = findViewById(R.id.login);
-        load = findViewById(R.id.loading);
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String inputtedEmail = email.getText().toString().trim();
-                String inputtedPassword = password.getText().toString();
+//                String inputtedEmail = email.getText().toString().trim();
+//                String inputtedPassword = password.getText().toString();
 
                 load.setVisibility(View.VISIBLE);
-                setAllEnabled(false);
+//                setAllEnabled(false);
 
                 Intent profileIntent = new Intent(LoginActivity.this, ProfileActivity.class);
                 startActivity(profileIntent);
@@ -68,9 +70,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void setAllEnabled(boolean enable) {
-        email.setEnabled(enable);
-        password.setEnabled(enable);
-        login.setEnabled(enable);
-    }
+//    private void setAllEnabled(boolean enable) {
+//        email.setEnabled(enable);
+//        password.setEnabled(enable);
+//        login.setEnabled(enable);
+//    }
 }
