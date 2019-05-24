@@ -48,7 +48,6 @@ public class ProfileActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_history:
                         startActivity(new Intent(ProfileActivity.this, HistoryActivity.class));
-                        break;
                     case R.id.action_data:
                         startActivity(new Intent(ProfileActivity.this, DataActivity.class));                        break;
                     case R.id.action_donate:
