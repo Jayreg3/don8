@@ -49,7 +49,7 @@ public class HistoryActivity extends AppCompatActivity {//simplements Transactio
                     case R.id.action_data:
                         startActivity(new Intent(HistoryActivity.this, AnalyticsActivity.class));                        break;
                     case R.id.action_donate:
-                        startActivity(new Intent(HistoryActivity.this, RecognitionActivity.class));                        break;
+                        startActivity(new Intent(HistoryActivity.this, ConfirmationActivity.class));                        break;
                     case R.id.action_profile:
                         startActivity(new Intent(HistoryActivity.this, ProfileActivity.class));
                         break;

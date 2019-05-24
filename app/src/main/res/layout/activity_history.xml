@@ -40,6 +40,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.RecyclerView
+        app:labelVisibilityMode="labeled"
         android:id="@+id/history"
         android:layout_width="400dp"
         android:layout_height="444dp"

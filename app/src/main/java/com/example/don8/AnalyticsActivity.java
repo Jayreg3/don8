@@ -42,7 +42,7 @@ public class AnalyticsActivity extends AppCompatActivity {
                     case R.id.action_data:
                         //startActivity(new Intent(AnalyticsActivity.this, AnalyticsActivity.class));                        break;
                     case R.id.action_donate:
-                        startActivity(new Intent(AnalyticsActivity.this, RecognitionActivity.class));                        break;
+                        startActivity(new Intent(AnalyticsActivity.this, ConfirmationActivity.class));                        break;
                     case R.id.action_profile:
                         startActivity(new Intent(AnalyticsActivity.this, ProfileActivity.class));
                         break;
