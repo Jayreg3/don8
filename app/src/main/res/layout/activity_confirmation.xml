@@ -100,7 +100,7 @@
             android:layout_marginTop="16dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Apple, Peanut Butter, Sandwich, Cookies, Orange, Watermelon, Chicken Tenders"
+            android:text="Apple"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
