@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -94,6 +96,7 @@ public class ProfileActivity extends AppCompatActivity {
         email_header = findViewById(R.id.email_header);
         phone_header = findViewById(R.id.phone_header);
         progress_label = findViewById(R.id.progress_label);
+        //progressBar.setProgress(20);
 
         donate = findViewById(R.id.donate);
         isRestaurant = true;
@@ -167,6 +170,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
         donate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -180,12 +184,9 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
+    }
 
-
-
-
-
-
+    public void visible(){
 
     }
 
