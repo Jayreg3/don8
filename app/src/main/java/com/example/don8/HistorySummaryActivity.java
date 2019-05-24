@@ -17,6 +17,7 @@ public class HistorySummaryActivity extends AppCompatActivity {//simplements Tra
     private String name;
     private String status;
     private String date;
+    private int image;
     private List<Transaction> transactions;
 
     private TextView title;
@@ -28,6 +29,9 @@ public class HistorySummaryActivity extends AppCompatActivity {//simplements Tra
     public static final String KEY_NAME = "NAME";
     public static final String KEY_STATUS = "STATUS";
     public static final String KEY_DATE = "DATE";
+    public static final String KEY_IMAGE = "IMAGE";
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -6,19 +6,20 @@ public class Transaction implements Serializable {
     private final String name;
     private final String date;
     private final String status;
-    //private final String image;
+    private final int image;
 
-    public Transaction(String name, String date, String status){//, String image) {
+    public Transaction(String name, String date, String status, int image) {
         this.name = name;
         this.date = date;
         this.status = status;
-        //this.image = image;
+        this.image = image;
 
     }
 
     public String getName() { return name; }
     public String getStatus() { return status; }
     public String getDate() { return date; }
+    public int getImage() { return image; }
     @Override
     public String toString() { return "Charity: " + name + "\nStatus: " + status + "\nDate:" + date; }
 }

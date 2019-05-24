@@ -31,5 +31,7 @@ public class HistoryActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        
     }
 }

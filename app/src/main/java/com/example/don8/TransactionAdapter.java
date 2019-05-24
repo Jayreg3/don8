@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.don8.R;
@@ -59,6 +60,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         holder.name.setText(transactions.get(position).getName());
         holder.date.setText(transactions.get(position).getDate());
         holder.status.setText(transactions.get(position).getStatus());
+        holder.image.setImageResource(transactions.get(position).getImage());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +91,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         TextView name;
         TextView status;
         TextView date;
+        ImageView image;
 
         ViewHolder(View rootView) {
             super(rootView);
@@ -96,6 +99,8 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             name = rootView.findViewById(R.id.name);
             status = rootView.findViewById(R.id.status);
             date = rootView.findViewById(R.id.date);
+            image = rootView.findViewById(R.id.foodImage);
+
         }
     }
 }
