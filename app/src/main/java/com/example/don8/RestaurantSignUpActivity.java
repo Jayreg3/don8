@@ -28,7 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RestaurantSignUpActivity extends AppCompatActivity {
-    public static String DATABASE_URL = "https://don8-8acd8.firebaseio.com/";
+    public final static String DATABASE_URL = "https://don8-8acd8.firebaseio.com/";
 
     private EditText name;
     private EditText email;
@@ -100,14 +100,15 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
-                            Toast.makeText(RestaurantSignUpActivity.this, "User created successfully", Toast.LENGTH_SHORT).show();
                             UserObject currUser = new UserObject(inputtedName, inputtedEmail, inputtedPassword,
                                     inputtedNumber, inputtedAddress, inputtedCity, inputtedState, inputtedZip, hasVeggies,
                                     hasFruit, hasGrains, hasCans, hasMeals, canDropOff);
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                            Toast.makeText(RestaurantSignUpActivity.this, "User created successfully", Toast.LENGTH_SHORT).show();
+
                             DatabaseReference databaseReference = firebaseDatabase.getReferenceFromUrl(DATABASE_URL);
                             databaseReference.push().setValue(currUser);
-                            
+
                         } else {
                             Toast.makeText(RestaurantSignUpActivity.this, "Couldn't create user", Toast.LENGTH_SHORT);
                         }
