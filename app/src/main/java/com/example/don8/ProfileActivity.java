@@ -11,7 +11,17 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class ProfileActivity extends AppCompatActivity {
+    public final static String DATABASE_URL = "https://don8-8acd8.firebaseio.com/";
+
 
     private TextView profile_name;
     private TextView company_id;
@@ -37,6 +47,9 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView email_header;
     private TextView phone_header;
 
+    private FirebaseDatabase firebaseDatabase;
+    private FirebaseAuth firebaseAuth;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +61,7 @@ public class ProfileActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_history:
                         startActivity(new Intent(ProfileActivity.this, HistoryActivity.class));
+                        break;
                     case R.id.action_data:
                         startActivity(new Intent(ProfileActivity.this, DataActivity.class));                        break;
                     case R.id.action_donate:
@@ -59,7 +73,6 @@ public class ProfileActivity extends AppCompatActivity {
                 return true;
             }
         });
-
 
         profile_name = findViewById(R.id.profile_name);
         company_id = findViewById(R.id.company_id);
@@ -84,6 +97,29 @@ public class ProfileActivity extends AppCompatActivity {
 
         donate = findViewById(R.id.donate);
         isRestaurant = true;
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+
+        FirebaseUser currUser = firebaseAuth.getCurrentUser();
+        DatabaseReference userReference = firebaseDatabase.getReferenceFromUrl(DATABASE_URL + "/" + currUser.getUid());
+        userReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                UserObject object = dataSnapshot.getValue(UserObject.class);
+                System.out.println(object);
+//                profile_name.setText(object.getName());
+//                company_id.setText(object.getEmail());
+//                contact_email.setText(object.getEmail());
+//                contact_number.setText(object.getPhoneNumber());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         if(!isRestaurant) {
             //donation_value.setVisibility(View.INVISIBLE);
