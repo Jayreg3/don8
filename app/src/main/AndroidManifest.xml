@@ -55,7 +55,7 @@
         <activity android:name=".ConfirmationActivity"></activity>
         <activity android:name=".RestaurantSignUpActivity"/>
         <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".HistorySummaryActivity"></activity>
+        <activity android:name=".HistoryActivity"></activity>
         <activity android:name=".HistoryActivity"></activity>
 
         <activity android:name=".DataActivity"></activity>

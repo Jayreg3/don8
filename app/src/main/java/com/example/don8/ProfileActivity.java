@@ -138,7 +138,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Second argument is the class to switch to
-                Intent intent = new Intent(getBaseContext(), HistorySummaryActivity.class);
+                Intent intent = new Intent(getBaseContext(), HistoryActivity.class);
 
                 //To pass info to the new screen. Name of the variable, value of variable
                 //intent.putExtra("mame", name);
@@ -165,7 +165,6 @@ public class ProfileActivity extends AppCompatActivity {
                 transactions.add(nine);
                 intent.putExtra("TRANSACTIONS", transactions);
 
-                System.out.println(transactions);
                 startActivity(intent);
 
             }

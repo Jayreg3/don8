@@ -8,6 +8,8 @@ public class Transaction implements Serializable {
     private final String status;
     private final int image;
 
+
+
     public Transaction(String name, String date, String status, int image) {
         this.name = name;
         this.date = date;
