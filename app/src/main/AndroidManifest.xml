@@ -38,7 +38,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
 
@@ -50,7 +49,6 @@
         <activity
             android:name=".AnalyticsActivity"
             android:label="Don8 - Data">
-
         </activity>
 
         <activity android:name=".ConfirmationActivity"></activity>
@@ -58,6 +56,7 @@
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".ProfileActivity"></activity>
         <activity android:name=".HistoryActivity"></activity>
+        <activity android:name=".RecognitionActivity"></activity>
 
 
     </application>
