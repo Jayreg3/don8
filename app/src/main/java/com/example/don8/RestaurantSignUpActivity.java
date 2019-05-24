@@ -3,6 +3,7 @@ package com.example.don8;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,6 +24,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -33,6 +36,7 @@ import okhttp3.Response;
 
 public class RestaurantSignUpActivity extends AppCompatActivity {
 
+    private static final String TAG = RestaurantSignUpActivity.class.getSimpleName();
     private EditText name;
     private EditText email;
     private EditText password;
@@ -60,8 +64,8 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
-       firebaseAuth = FirebaseAuth.getInstance();
-       firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
 
 
         name = findViewById(R.id.name);
@@ -82,9 +86,10 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
         no = findViewById(R.id.no_button);
         create = findViewById(R.id.create_profile);
 
-        create.setOnClickListener(new View.OnClickListener() {
+        create.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("CLICKED");
                 String inputtedEmail = email.getText().toString().trim();
                 String inputtedPassword = password.getText().toString();
 
@@ -103,50 +108,56 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
                 //make okhttpclient object
                 OkHttpClient client = new OkHttpClient();
 
-                //call function if login button is clicked
-                switch (view.getId()) {
-                    case R.id.create_profile:
-                        try {
-                            doGetRequest("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=feeding%20america&inputtype=textquery&fields=id,name,icon,formatted_address,geometry,types&key=AIzaSyCGVC5nczigiEZMugTnssESOHXT6P6GQMQ");
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                // Initialize a new Request
+                Request request = new Request.Builder()
+                        .url("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=feeding%20america&inputtype=textquery&fields=id,name,icon,formatted_address,geometry,types&key=AIzaSyCGVC5nczigiEZMugTnssESOHXT6P6GQMQ")
+                        .build();
+
+                client.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        // Do something when request failed
+                        e.printStackTrace();
+                        Log.d(TAG, "Request Failed.");
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        if (!response.isSuccessful()) {
+                            throw new IOException("Error : " + response);
+                        } else {
+                            Log.d(TAG, "Request Successful.");
                         }
-                        break;
-                }
+
+                        // Read data in the worker thread
+                        final String data = response.body().string();
+                        try {
+
+                            JSONObject coords_json = new JSONObject(data);
+                            System.out.println(coords_json);
+                            //get the values of the json
+//                            JSONObject candidates  = coords_json.getJSONObject("candidates");
+//                            geometry = candidates.getString("geometry");
+//                            System.out.println(geometry);
+
+
+                        } catch (Throwable t) {
+                            Log.e("My App", "Could not parse malformed JSON: \"" + data + "\"");
+                        }
+
+
+//                        // Display the requested data on UI in main thread
+//                        mActivity.runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                // Display requested url data as string into text view
+//                                mTextView.setText(data);
+//                            }
+//                        });
+                    }
+                });
             }
         });
     }
-
-
-    //setup function
-    void doGetRequest(String url) throws IOException {
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
-        client.newCall(request)
-                .enqueue(new Callback() {
-                    @Override
-                    public void onFailure(final Call call, IOException e) {
-                        // Error
-                        System.out.println("Didn't work");
-
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                // For the example, you can show an error dialog or a toast
-                                // on the main UI thread
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onResponse(Call call, final Response response) throws IOException {
-                        String res = response.body().string();
-
-                        // Do something with the response
-                        System.out.println(res);
-                    }
-                });
-    }
 }
+

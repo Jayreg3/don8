@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("CLICKED Login");
                 String inputtedUsername = email.getText().toString().trim();
                 String inputtedPassword = password.getText().toString();
 
