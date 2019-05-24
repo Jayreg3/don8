@@ -109,6 +109,8 @@ public class RestaurantSignUpActivity extends AppCompatActivity {
                             DatabaseReference databaseReference = firebaseDatabase.getReferenceFromUrl(DATABASE_URL);
                             databaseReference.push().setValue(currUser);
 
+                            Intent profileIntent = new Intent(RestaurantSignUpActivity.this, ProfileActivity.class);
+                            startActivity(profileIntent);
                         } else {
                             Toast.makeText(RestaurantSignUpActivity.this, "Couldn't create user", Toast.LENGTH_SHORT);
                         }
