@@ -24,7 +24,8 @@ public class ConfirmationActivity extends AppCompatActivity {
 //        mDatabase = FirebaseDatabase.getInstance().getReference();
 //
 //        Bitmap image = getIntent().getExtras().getParcelable("image");
-        
+        Intent confirmationIntent = new Intent(ConfirmationActivity.this, CharityActivity.class);
+        startActivity(confirmationIntent);
 
     }
 }

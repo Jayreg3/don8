@@ -1,8 +1,12 @@
 package com.example.don8;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
@@ -27,6 +31,25 @@ public class AnalyticsActivity extends AppCompatActivity {
         setContentView(R.layout.analytics_view);
         // init analytics
         // mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_history:
+                        startActivity(new Intent(AnalyticsActivity.this, HistoryActivity.class));
+                        break;
+                    case R.id.action_data:
+                        //startActivity(new Intent(AnalyticsActivity.this, AnalyticsActivity.class));                        break;
+                    case R.id.action_donate:
+                        startActivity(new Intent(AnalyticsActivity.this, RecognitionActivity.class));                        break;
+                    case R.id.action_profile:
+                        startActivity(new Intent(AnalyticsActivity.this, ProfileActivity.class));
+                        break;
+                }
+                return true;
+            }
+        });
 
         xLabel.add("Jan");
         xLabel.add("Feb");

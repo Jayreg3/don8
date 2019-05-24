@@ -200,7 +200,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
-                android:text="A summary of charity tax write off laws"
+                android:text="Charity tax write off laws"
+                android:textStyle="bold"
                 android:visibility="visible" />
 
             <TextView
@@ -212,7 +213,7 @@
                 android:layout_marginEnd="8dp"
                 android:autoLink="all"
                 android:clickable="true"
-                android:text="https://publichealthlawcenter.org/sites/default/files/resources/Liability%20Protection%20Food%20Donation.pdf"
+                android:text="A number of federal laws encourage food donation in the United States by providing liability protection to donors or tax incentives."
                 android:visibility="visible" />
 
             <TextView
@@ -223,6 +224,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
                 android:text="A summary of donation laws"
+                android:textStyle="bold"
                 android:visibility="visible" />
 
             <TextView
@@ -234,7 +236,7 @@
                 android:layout_marginEnd="8dp"
                 android:autoLink="all"
                 android:clickable="true"
-                android:text="http://www.chlpi.org/wp-content/uploads/2013/12/Food-Donation-Fed-Tax-Guide-for-Pub-2.pdf"
+                android:text="Internal Revenue Code 170(e)(3) provides enhanced tax deductions to businesses to encourage donations of fit and wholesome food to qualified nonprofit organizations serving the poor and needy.  Qualified business taxpayers can deduct the cost to produce the food and half the difference between the cost and full fair market value of the donated food."
                 android:visibility="visible" />
 
             <TextView
@@ -246,6 +248,7 @@
                 android:layout_marginEnd="8dp"
                 android:linksClickable="true"
                 android:text="PDF outlining donation laws."
+                android:textStyle="bold"
                 android:visibility="visible" />
 
             <TextView
@@ -257,7 +260,7 @@
                 android:layout_marginEnd="8dp"
                 android:autoLink="all"
                 android:clickable="true"
-                android:text="https://www.refed.com/tools/food-waste-policy-finder/federal-policy/federal-tax-incentives"
+                android:text="The U.S. Federal Food Donation Act of 2008 specifies procurement contract language encouraging Federal agencies and contractors of Federal agencies to donate excess wholesome food to eligible nonprofit organizations to feed food-insecure people in the United States."
                 android:visibility="visible" />
 
             <Button
@@ -279,6 +282,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="Phone"
+                android:textStyle="bold"
                 android:visibility="visible" />
 
             <TextView
@@ -287,7 +291,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="(123)456-7890"
+                android:text="       (123)456-7890"
                 android:visibility="visible" />
 
             <TextView
@@ -298,6 +302,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:text="Email"
+                android:textStyle="bold"
                 android:visibility="visible" />
 
             <TextView
@@ -306,7 +311,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="green_pig_bistro@gmail.com"
+                android:text="       green_pig_bistro@gmail.com"
                 android:visibility="visible" />
 
         </LinearLayout>
