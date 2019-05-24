@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class CharityActivity extends AppCompatActivity {
@@ -62,7 +63,7 @@ public class CharityActivity extends AppCompatActivity {
             public void onClick(View v) {
                 success.setVisibility(View.GONE);
                 ok.setVisibility(View.GONE);
-
+                Toast.makeText(CharityActivity.this, "Donation Confirmed " , Toast.LENGTH_SHORT).show();
                 Intent profileIntent = new Intent(CharityActivity.this, ProfileActivity.class);
                 startActivity(profileIntent);
             }
