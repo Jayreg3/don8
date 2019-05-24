@@ -21,7 +21,7 @@ public class HistoryActivity extends AppCompatActivity {
                         //startActivity(new Intent(HistoryActivity.this, HistoryActivity.class));
                         break;
                     case R.id.action_data:
-                        startActivity(new Intent(HistoryActivity.this, AnalyticsActivity.class));                        break;
+                        startActivity(new Intent(HistoryActivity.this, DataActivity.class));                        break;
                     case R.id.action_donate:
                         startActivity(new Intent(HistoryActivity.this, MapsActivity.class));                        break;
                     case R.id.action_profile:

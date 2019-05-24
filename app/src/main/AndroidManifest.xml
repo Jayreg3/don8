@@ -50,18 +50,14 @@
         </activity>
 
         <activity
-            android:name=".AnalyticsActivity"
+            android:name=".DataActivity"
             android:label="Analytics">
-        </activity>
-
-        <activity
-            android:name=".ProfileActivity"
-            android:label="Profile">
         </activity>
 
         <activity android:name=".ConfirmationActivity"></activity>
         <activity android:name=".RestaurantSignUpActivity"/>
         <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>

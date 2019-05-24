@@ -30,7 +30,7 @@ public class AnalyticsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.analytics_view);
         // init analytics
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         /*
         BarChart barChart = (BarChart) findViewById(R.id.analytics_bar_chart);
@@ -51,26 +51,6 @@ public class AnalyticsActivity extends AppCompatActivity {
 
         */
 
-        setContentView(R.layout.analytics_view);
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.action_history:
-                        startActivity(new Intent(AnalyticsActivity.this, HistoryActivity.class));
-                        break;
-                    case R.id.action_data:
-                        //startActivity(new Intent(DataActivity.this, DataActivity.class));                        break;
-                    case R.id.action_donate:
-                        startActivity(new Intent(AnalyticsActivity.this, MapsActivity.class));                        break;
-                    case R.id.action_profile:
-                        startActivity(new Intent(AnalyticsActivity.this, ProfileActivity.class));
-                        break;
-                }
-                return true;
-            }
-        });
     }
 
     // TODO: add fake data
