@@ -9,13 +9,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 
 public class CharityActivity extends AppCompatActivity {
 
     private Button match;
     private Button ok;
     private ImageView charity;
-    private ImageView success;
+    //private ImageView success;
+    private TextView success;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,7 @@ public class CharityActivity extends AppCompatActivity {
         match = findViewById(R.id.match);
         ok = findViewById(R.id.okay);
         charity = findViewById(R.id.charity);
-        success = findViewById(R.id.success);
+        success = findViewById(R.id.textView16);
 
         match.setOnClickListener((new View.OnClickListener() {
             @Override
