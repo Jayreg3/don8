@@ -46,6 +46,7 @@
         <activity android:name=".ConfirmationActivity"></activity>
         <activity android:name=".RestaurantSignUpActivity"/>
         <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>
